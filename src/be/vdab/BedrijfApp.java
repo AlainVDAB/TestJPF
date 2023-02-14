@@ -39,7 +39,7 @@ public class BedrijfApp {
             System.out.println(ex.getMessage());
         }
         try {
-            personeelsbestand.voegWerknemerToe(new Kaderlid(258, new WerknemersDatum(26, 3, 2008), "Maud", Geslacht.V, BigDecimal.valueOf(12000), Functietitel.MANAGER));
+            personeelsbestand.voegWerknemerToe(new Kaderlid(258, new WerknemersDatum(26, 3, 2008), "Siska", Geslacht.V, BigDecimal.valueOf(12000), Functietitel.MANAGER));
         } catch (DatumException | WerknemerException ex) {
             System.out.println(ex.getMessage());
         }

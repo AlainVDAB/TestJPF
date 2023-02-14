@@ -5,9 +5,10 @@ import be.vdab.util.Functietitel;
 import be.vdab.util.Geslacht;
 import be.vdab.util.WerknemersDatum;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Kaderlid extends Bediende {
+public class Kaderlid extends Bediende implements Serializable {
     private Functietitel functietitel;
     public Kaderlid(int personeelsnummer, WerknemersDatum datumInDienst, String naam, Geslacht geslacht, BigDecimal maandwedde, Functietitel functietitel) {
         super(personeelsnummer, datumInDienst, naam, geslacht, maandwedde);

@@ -10,25 +10,16 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Zusterbedrijf implements Serializable {
-
-    private final static Path PAD = Path.of("/data/personeel.dat");
-    private static final long serialVersionUID = 1L;
+public class Zusterbedrijf{
 
     public static void main(String[] args) {
         var personeelsbestand = new Bedrijf();
 
-        if (Files.exists(PAD)) {
-            try (var stream = new ObjectInputStream(
-                    Files.newInputStream(PAD))) {
 
-                personeelsbestand = (Bedrijf) stream.readObject();
-            } catch (Exception ex) {
-                System.err.println(ex.getMessage());
+        personeelsbestand.leesLijst();
 
-            }
 
-            personeelsbestand.printLijst();
+        personeelsbestand.printLijst();
 
 
     }

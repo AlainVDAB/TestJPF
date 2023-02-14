@@ -2,6 +2,7 @@ package be.vdab.personeel;
 
 import be.vdab.util.Datum;
 import be.vdab.util.Geslacht;
+import be.vdab.util.WerknemerException;
 import be.vdab.util.WerknemersDatum;
 
 import java.io.Serializable;
@@ -14,8 +15,12 @@ public abstract class Werknemer implements Comparable<Werknemer>, Serializable {
     private String naam;
     private Geslacht geslacht;
 
-    public Werknemer(int personeelsnummer, WerknemersDatum datumInDienst, String naam, Geslacht geslacht) {
-        this.personeelsnummer = personeelsnummer;
+    public Werknemer (int personeelsnummer, WerknemersDatum datumInDienst, String naam, Geslacht geslacht) {
+        if (personeelsnummer > 0) {
+            this.personeelsnummer = personeelsnummer;
+        } else {
+            throw new WerknemerException("Het personeelsnummer moet groter dan 0 zijn.");
+        }
         this.datumInDienst = datumInDienst;
         this.naam = naam;
         this.geslacht = geslacht;
@@ -72,7 +77,5 @@ public abstract class Werknemer implements Comparable<Werknemer>, Serializable {
         return getPersoneelsnummer();
     }
 
-    public BigDecimal getVerloning(){
-
-    }
+    public abstract BigDecimal getVerloning();
 }

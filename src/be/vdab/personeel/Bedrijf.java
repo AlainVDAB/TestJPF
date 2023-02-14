@@ -5,6 +5,7 @@ import be.vdab.util.Geslacht;
 import be.vdab.util.WerknemerException;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.file.Files;
@@ -72,6 +73,24 @@ public class Bedrijf implements Serializable {
             }
     }
 
-}
+    public void leesLijst(){
+        if (Files.exists(PAD)) {
+            try (var stream = new ObjectInputStream(
+                    Files.newInputStream(PAD))) {
+                //System.out.println("test");
+                bedrijfslijst= (ArrayList<Werknemer>) stream.readObject();
+            } catch (Exception ex) {
+                System.err.println(ex.getMessage());
+
+
+
+            }
+
+    }
+
+
+    }}
+
+
 
 

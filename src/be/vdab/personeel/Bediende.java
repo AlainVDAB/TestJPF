@@ -4,9 +4,10 @@ import be.vdab.util.Geslacht;
 import be.vdab.util.WerknemerException;
 import be.vdab.util.WerknemersDatum;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Bediende extends Werknemer {
+public class Bediende extends Werknemer implements Serializable {
     private BigDecimal maandwedde;
     public Bediende(int personeelsnummer, WerknemersDatum datumInDienst, String naam, Geslacht geslacht, BigDecimal maandwedde) {
         super(personeelsnummer, datumInDienst, naam, geslacht);
@@ -26,6 +27,12 @@ public class Bediende extends Werknemer {
 
     @Override
     public String toString() {
-        return super.toString() + "\t" +maandwedde;
+        return super.toString() + "\t" +maandwedde + "\t" + getVerloning();
 
-    }}
+    }
+@Override
+public BigDecimal getVerloning(){
+        return maandwedde;
+}
+
+}
