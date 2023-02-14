@@ -4,7 +4,10 @@ import be.vdab.util.Datum;
 import be.vdab.util.Geslacht;
 import be.vdab.util.WerknemersDatum;
 
-public class Werknemer implements Comparable<Werknemer>{
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+public abstract class Werknemer implements Comparable<Werknemer>, Serializable {
     //**********Personeelsnummer AANPASSEN. ook met exception werken?
     private final int personeelsnummer;
     private WerknemersDatum datumInDienst;
@@ -67,5 +70,9 @@ public class Werknemer implements Comparable<Werknemer>{
     @Override
     public int hashCode() {
         return getPersoneelsnummer();
+    }
+
+    public BigDecimal getVerloning(){
+
     }
 }
